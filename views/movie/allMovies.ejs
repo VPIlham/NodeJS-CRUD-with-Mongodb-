@@ -1,0 +1,24 @@
+<% include ../header %>
+
+<a href="movies/create" class="btn btn-primary">Add Movies</a>
+
+<% for(let data of ListMovies){ %>
+<div class="card">
+  <div class="card-header">
+    <%= data.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= data.released_on %></h5>
+    <a href="movies/update/<%= data.id %>" class="btn btn-primary">Edit</a>
+    <a href="#data<%= data.id %>" class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Delete</a>
+  </div>
+</div>
+
+<div class="collapse" id="data<%= data.id %>">
+  <div class="card-body">
+    Yakin Menghapus Film <%= data.name %>
+    <a href="movies/delete/<%= data.id %>" class="btn btn-primary">Delete</a>
+  </div>
+</div>
+
+<% } %>
